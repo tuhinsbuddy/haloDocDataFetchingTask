@@ -200,26 +200,26 @@ extension ShowLatestNewsMainViewController: UITableViewDataSource{
                     !newsMainTitleCheck.isEmpty {
                     cell.showLatestNewsMainTitleLbl.text = newsMainTitleCheck
                 } else {
-                    cell.showLatestNewsMainTitleLbl.text = nil
+                    cell.showLatestNewsMainTitleLbl.text = "No title found!"
                 }
                 
                 if let authorNameCheck = latestNewsDetailsDataFromServer[indexPath.row]["authorName"] as? String,
                     !authorNameCheck.isEmpty {
                     cell.showLatestNewsMainAuthorLbl.text = authorNameCheck
                 } else {
-                    cell.showLatestNewsMainAuthorLbl.text = nil
+                    cell.showLatestNewsMainAuthorLbl.text = "No author found!"
                 }
                 
                 if let pointsCountCheck = latestNewsDetailsDataFromServer[indexPath.row]["pointsCount"] as? Int{
                     cell.showLatestNewsPointLbl.text = "Points - \(pointsCountCheck)"
                 } else {
-                    cell.showLatestNewsPointLbl.text = nil
+                    cell.showLatestNewsPointLbl.text = "Points - 0"
                 }
                 
                 if let commentsCountCheck = latestNewsDetailsDataFromServer[indexPath.row]["commentsCount"] as? Int{
                     cell.showLatestNewsCommentCountLbl.text = "Comments - \(commentsCountCheck)"
                 } else {
-                    cell.showLatestNewsCommentCountLbl.text = nil
+                    cell.showLatestNewsCommentCountLbl.text = "Comments - 0"
                 }
                 
             }
