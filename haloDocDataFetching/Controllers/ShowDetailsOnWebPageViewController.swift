@@ -65,12 +65,13 @@ class ShowDetailsOnWebPageViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        webViewOutletForPageDetails?.removeObserver(self, forKeyPath: "estimatedProgress")
         
     }
     
     @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
-        
+        webViewOutletForPageDetails?.removeObserver(self, forKeyPath: "estimatedProgress")
+        webViewOutletForPageDetails = nil
+        webViewOutletForPageDetails?.removeFromSuperview()
         DispatchQueue.main.async (execute: { [unowned self] in
             if let navigationControllerCheck = self.navigationController{
                 navigationControllerCheck.popViewController(animated: true)
